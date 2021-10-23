@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
+      source = "hashicorp/aws"
     }
   }
   backend "s3" {
@@ -13,8 +13,8 @@ terraform {
 provider "aws" {
   region = "eu-west-2"
 }
-resource aws_s3_bucket b {
-  bucket = "jsalaly-tf-test-bucket"
+resource "aws_s3_bucket" "b" {
+  bucket = "jalal-tf-test-bucket"
   acl    = "private"
 
   tags = {
