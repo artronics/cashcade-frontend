@@ -41,10 +41,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Download a single artifact
+      - name: Download build artifact
         uses: actions/download-artifact@v2
         with:
           name: cashcade-app
+          path: dist
 
       - name: Terraform init
         run: terraform init -backend-config="key=frontend/${ENVIRONMENT}/state"
