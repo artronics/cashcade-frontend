@@ -55,12 +55,6 @@ jobs:
         run: terraform plan
         working-directory: terraform
 
-      - name: ls
-        run: ls
-
-      - name: ls build
-        run: ls dist
-
       - name: Terraform apply
         # On push to master, build or change infrastructure according to Terraform configuration files
         #      if: github.ref == 'refs/heads/master' && github.event_name == 'push'

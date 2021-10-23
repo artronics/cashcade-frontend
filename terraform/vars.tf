@@ -1,3 +1,3 @@
-variable "state_key" {
-  default = "frontend"
+variable dist_dir {
+  default = "../dist/"
 }
