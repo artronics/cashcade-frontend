@@ -32,7 +32,6 @@ jobs:
     runs-on: ubuntu-latest
     container: hashicorp/terraform
     env:
-      ENVIRONMENT: dev
       AWS_ACCESS_KEY_ID: secret.AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY: secret.AWS_SECRET_ACCESS_KEY
 
@@ -43,6 +42,8 @@ jobs:
       - name: Terraform init
         run: terraform init -backend-config="key=frontend/${ENVIRONMENT}/state"
         working-directory: terraform
+        env:
+          ENVIRONMENT: dev
 
       - name: Terraform plan
         run: terraform plan
