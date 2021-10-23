@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: 'Terraform'
+    name: Build
     runs-on: ubuntu-latest
     environment: production
 
@@ -28,6 +28,7 @@ jobs:
   #      run: terraform apply -auto-approve
 
   deploy:
+    name: deploy
     runs-on: ubuntu-latest
     container: hashicorp/terraform
     env:
@@ -40,13 +41,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Terraform init
-        run: make init
+        run: terraform init -backend-config="key=frontend/$(ENVIRONMENT)/state"
         working-directory: terraform
 
       - name: Terraform plan
-        run: make plan
+        run: terraform plan
         working-directory: terraform
 
       - name: Terraform apply
-        run: make apply
+        run: terraform apply -auto-approve
         working-directory: terraform
