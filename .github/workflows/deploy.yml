@@ -31,9 +31,6 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     container: hashicorp/terraform
-    env:
-      AWS_ACCESS_KEY_ID: secret.AWS_ACCESS_KEY_ID
-      AWS_SECRET_ACCESS_KEY: secret.AWS_SECRET_ACCESS_KEY
 
     steps:
       - name: Checkout
@@ -44,6 +41,8 @@ jobs:
         working-directory: terraform
         env:
           ENVIRONMENT: dev
+          AWS_ACCESS_KEY_ID: secret.AWS_ACCESS_KEY_ID
+          AWS_SECRET_ACCESS_KEY: secret.AWS_SECRET_ACCESS_KEY
 
       - name: Terraform plan
         run: terraform plan
@@ -52,3 +51,6 @@ jobs:
       - name: Terraform apply
         run: terraform apply -auto-approve
         working-directory: terraform
+        env:
+          AWS_ACCESS_KEY_ID: secret.AWS_ACCESS_KEY_ID
+          AWS_SECRET_ACCESS_KEY: secret.AWS_SECRET_ACCESS_KEY
