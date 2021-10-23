@@ -56,10 +56,10 @@ jobs:
         working-directory: terraform
 
       - name: ls
-        run: ls public
+        run: ls
 
       - name: ls build
-        run: ls build
+        run: ls dist
 
       - name: Terraform apply
         # On push to master, build or change infrastructure according to Terraform configuration files
