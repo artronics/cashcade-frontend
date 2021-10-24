@@ -1,6 +1,6 @@
-dist:
-	cp -r public dist
+clean:
+	rm -rf build dist
 
-build: dist
+build: clean
 	npm run build
-
+	cp -r public dist

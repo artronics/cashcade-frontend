@@ -6,3 +6,5 @@ plan:
 	terraform plan
 apply:
 	terraform apply -auto-approve
+
+deploy: init plan apply
