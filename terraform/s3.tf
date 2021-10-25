@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "www_bucket" {
   }
 }
 
-resource "aws_s3_bucket" "www_redirect_bucket" {
+resource "aws_s3_bucket" "root_bucket" {
   bucket = var.domain_name
   acl    = "public-read"
   policy = data.aws_iam_policy_document.redirect_website_policy.json

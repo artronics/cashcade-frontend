@@ -3,5 +3,5 @@ variable "dist_dir" {
 }
 
 variable "domain_name" {
-  default = "jalalhosseini.com"
+  default = "pawnflow.co.uk"
 }
